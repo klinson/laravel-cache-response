@@ -27,7 +27,6 @@ composer require klinson/laravel-cache-response
 - Lumen(未实测)在`bootstrap/app.php`中进行注册，加入如下代码
     ```php
     $app->register(Klinson\CacheResponse\CacheResponseServiceProvider::class);
-    }
     ```
 
 ### 发布配置/Publish Configuration
