@@ -1,6 +1,8 @@
 {
   "name": "klinson/laravel-cache-response",
-  "description": "Laravel中间件，缓存返回数据，适用于接口返回json或其他格式数据",
+  "description": "Laravel请求结果自动缓存中间件，缓存返回数据，适用于接口返回json或其他格式数据",
+  "keywords": ["laravel", "cache", "middleware", "auto", "response", "klinson"],
+  "homepage": "https://github.com/klinson/laravel-cache-response",
   "type": "1",
   "require": {
     "php": ">=5.6",

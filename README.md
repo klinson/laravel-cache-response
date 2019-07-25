@@ -1,10 +1,10 @@
-# Klinson/CacheResponse
+# klinson/laravel-cache-response
 
 [![Packagist License](https://poser.pugx.org/barryvdh/laravel-debugbar/license.png)](http://choosealicense.com/licenses/mit/)
 
 ## Description/描述
 
-laravel 请求结果自动缓存
+Laravel请求结果自动缓存中间件，缓存返回数据，适用于接口返回json或其他格式数据
 
 ## Installation/安装
 
