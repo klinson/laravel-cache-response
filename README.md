@@ -2,11 +2,11 @@
 
 [![Packagist License](https://poser.pugx.org/barryvdh/laravel-debugbar/license.png)](http://choosealicense.com/licenses/mit/)
 
-## Description/描述
+## 描述/Description
 
 Laravel请求结果自动缓存中间件，缓存返回数据，适用于接口返回json或其他格式数据
 
-## Installation/安装
+## 安装/Installation
 
 
 ### 安装包/Install Package
@@ -44,7 +44,7 @@ php artisan vendor:publish --provider="Klinson\CacheResponse\CacheResponseServic
 Route::get('data', 'DataController@all')->middleware('cache_response');
 ```
 
-## 清除所有缓存
+## 清除所有缓存/Clear All Cache
 > 仅在缓存驱动是`redis`、`memcached`有效
 ```shell
 php artisan cache-response:clear
