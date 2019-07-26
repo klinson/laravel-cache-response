@@ -7,6 +7,12 @@
  */
 
 return [
+    // 全局开关，是否启用，默认开启
+    'enable' => env('CACHE_RESPONSE_ENABLE', true),
+
+    // local开发环境时默认不缓存
+    'local_disable' => env('CACHE_RESPONSE_LOCAL_DISABLE', true),
+
     // 请求方法为配置值才缓存，多个以,组合，如'GET,POST',兼容大小写
     'allow_methods' => env('CACHE_RESPONSE_METHODS', 'GET'),
 

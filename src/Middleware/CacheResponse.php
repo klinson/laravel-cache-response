@@ -56,11 +56,29 @@ class CacheResponse
      */
     protected function check($request)
     {
+        // 验证缓存驱动必须是redis或memcached
+        if (Cache::getDefaultDriver() !== 'redis' && Cache::getDefaultDriver() !== 'memcached') {
+            return false;
+        }
+
+        // 全局开关
+        if (! config('cacheresponse.enable', true)) {
+            return false;
+        }
+
+        // 本地环境默认关闭
+        if (app()->isLocal() && config('cacheresponse.local_disable', true)) {
+            return false;
+        }
+
+        // 验证请求方法是否范围内
         $methods = config('cacheresponse.allow_methods', 'get');
         $methods = explode(',', strtoupper($methods));
         if (! in_array($request->method(), $methods)) {
             return false;
         }
+
+        // 验证是否是忽略路由
         if ($except_routes = config('cacheresponse.except_routes', [])) {
 
             foreach ($except_routes as $except) {

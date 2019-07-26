@@ -6,6 +6,8 @@
 
 Laravel请求结果自动缓存中间件，缓存返回数据，适用于接口返回json或其他格式数据
 
+> 依赖缓存，缓存驱动必须是`redis`、`memcached`
+
 ## 安装/Installation
 
 
@@ -22,11 +24,6 @@ composer require klinson/laravel-cache-response
 
     ```php
     Klinson\CacheResponse\CacheResponseServiceProvider::class,
-    ```
-    
-- Lumen(未实测)在`bootstrap/app.php`中进行注册，加入如下代码
-    ```php
-    $app->register(Klinson\CacheResponse\CacheResponseServiceProvider::class);
     ```
 
 ### 发布配置/Publish Configuration
