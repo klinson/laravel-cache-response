@@ -25,6 +25,11 @@ composer require klinson/laravel-cache-response
     ```php
     Klinson\CacheResponse\CacheResponseServiceProvider::class,
     ```
+    
+    需要在`config/app.php`中`aliases`数组中加入下面一条
+    ```php
+    'CacheResponse' => Klinson\CacheResponse\CacheResponse::class,
+    ```
 
 ### 发布配置/Publish Configuration
 
@@ -38,6 +43,22 @@ php artisan vendor:publish --provider="Klinson\CacheResponse\CacheResponseServic
 
 ```php
 Route::get('data', 'DataController@all')->middleware('cache_response');
+```
+
+助手函数`cache_response()`
+
+```php
+// 获取CacheResponse对象
+cache_response()
+
+// 获取$cache_key下的缓存返回Response对象
+cache_response($cache_key)
+
+// 获取$request下的缓存返回Response对象
+cache_response($request)
+
+// 设置缓存
+cache_response($request, $response)
 ```
 
 ## 清除所有缓存/Clear All Cache
