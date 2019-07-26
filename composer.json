@@ -21,13 +21,19 @@
   "autoload": {
     "psr-4": {
       "Klinson\\CacheResponse\\": "src/"
-    }
+    },
+    "files": [
+      "src/helpers.php"
+    ]
   },
   "extra": {
     "laravel": {
       "providers": [
         "Klinson\\CacheResponse\\CacheResponseServiceProvider"
-      ]
+      ],
+      "aliases": {
+        "CacheResponse": "Klinson\\CacheResponse\\Facades\\CacheResponse"
+      }
     }
   }
 }

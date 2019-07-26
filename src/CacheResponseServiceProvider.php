@@ -4,7 +4,7 @@ namespace Klinson\CacheResponse;
 
 use Klinson\CacheResponse\Console\Command\Clear;
 use Illuminate\Support\ServiceProvider;
-use Klinson\CacheResponse\Middleware\CacheResponse;
+use Klinson\CacheResponse\Middleware\CacheResponse as CacheResponseMiddleware;
 
 class CacheResponseServiceProvider extends ServiceProvider
 {
@@ -17,7 +17,7 @@ class CacheResponseServiceProvider extends ServiceProvider
     {
         $this->publishes([realpath(__DIR__.'/../config/cacheresponse.php') => config_path('cacheresponse.php')]);
 
-        $this->addMiddlewareAlias('cache_response', CacheResponse::class);
+        $this->addMiddlewareAlias('cache_response', CacheResponseMiddleware::class);
 
         if ($this->app->runningInConsole()) {
             $this->commands([
@@ -34,6 +34,10 @@ class CacheResponseServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(realpath(__DIR__.'/../config/cacheresponse.php'), 'cacheresponse');
+
+        $this->app->singleton('cache.response', function () {
+            return new CacheResponse;
+        });
     }
 
     /**
