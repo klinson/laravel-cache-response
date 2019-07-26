@@ -21,6 +21,6 @@ class CacheResponse extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'CacheResponse';
+        return \Klinson\CacheResponse\CacheResponse::class;
     }
 }

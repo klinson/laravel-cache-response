@@ -29,9 +29,7 @@ if (!function_exists('cache_response')) {
 
             if ($arguments[0] instanceof \Illuminate\Http\Request) {
                 if (! $cacheResponse->checkRequest($arguments[0])) {
-                    throw new Exception(
-                        '当前请求没有缓存'
-                    );
+                    return null;
                 }
                 return $cacheResponse->getCache($cacheResponse->getCacheKey($arguments[0]));
             }
