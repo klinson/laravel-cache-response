@@ -134,6 +134,12 @@ class CacheResponse
     {
         if ($request instanceof \Illuminate\Http\Request) {
             $params = $request->all();
+
+            $pathInfoKey = '_pathinfo';
+            while (isset($params[$pathInfoKey])) {
+                $pathInfoKey = '_'.$pathInfoKey;
+            }
+            $params[$pathInfoKey] = $request->getPathInfo();
         } else {
             $params = $request;
         }
